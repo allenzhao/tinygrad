@@ -41,6 +41,10 @@ jobs:
         python3 -m ruff . --preview
     - name: Lint tinygrad with pylint
       run: python -m pylint tinygrad/
+    - name: Lint tinygrad with pylint using pre-commit hook
+      uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: pylint
     - name: Run mypy
       run: python -m mypy
     - name: Install SLOCCount
